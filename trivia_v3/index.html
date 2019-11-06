@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Who Wants to be a Millionaire?</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/4.1.0/css/fabric.min.css"
+    />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <main>
+        <div class="header">
+          <!-- Place to place messages or voting results etc -->
+        </div>
+        <h1 class="question">{{message}}</h1>
+        <!-- Display the first question along with its 4 multiple choice answers using Vue's template syntax -->
+        <button id="a" class="item-a"><span>A:</span>{{answer[0].correct}}</button>
+        <button id="b" class="item-b"><span>B:</span>{{answer[0].incorrect[0]}}</button>
+        <button id="c" class="item-c"><span>C:</span>{{answer[0].incorrect[1]}}</button>
+        <button id="d" class="item-d"><span>D:</span>{{answer[0].incorrect[2]}}</button>
+      </main>
+      <aside>
+        <section>
+          <button id="fifty_fifty">
+            <i class="ms-Icon ms-Icon--Contrast" aria-hidden="true"></i>
+          </button>
+          <button id="ask_audience">
+            <i class="ms-Icon ms-Icon--Group" aria-hidden="true"></i>
+          </button>
+          <button id="phone_friend">
+            <i class="ms-Icon ms-Icon--Phone" aria-hidden="true"></i>
+          </button>
+        </section>
+        <!-- Using vue.js, use v-for to display the amounts on the side  -->
+        <transition-group tag="ul" name="money">
+          <li v-for="(numbers, i) in money" :key="numbers" :data-idx="i">{{numbers.level}} - {{numbers.amount}}</li>
+        </transition-group>
+      </aside>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <script src="index.js"></script>
+</html>
